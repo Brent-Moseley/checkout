@@ -26,6 +26,46 @@
     width:100%
 }
 
+.center {
+  text-align: center;
+}
+
+.scanner, .admin {
+  width: 500px;
+  display: inline-block;
+  height: 400px;
+  margin: 12px;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 6px 6px 5px #888888;
+}
+
+textarea {
+  resize: none;
+  margin: 10px;
+  margin-left: 60px;
+  position: absolute;
+}
+
+.button_holder {
+  position: absolute;
+  background-color: #DDD;
+  margin: 9px;
+  margin-left: 46px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 3px #888888;
+  width: 400px;
+  height: 70px;
+}
+
+.scan_button {
+  margin: 16px;
+  position: inline-block;
+  width: 40px;
+  height: 30px;
+  border-radius: 7px;
+}
+
 footer {
     position:fixed;
     left:0;

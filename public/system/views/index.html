@@ -1,3 +1,26 @@
 <section data-ng-controller="IndexController">
-	<h1 mean-token="'home-default'">This is the home view</h1>
+  <h1 mean-token="'home-default'">Checkout</h1>
+  <h3 class="center">
+    (Implements solution to code kata 09)
+    <!-- http://codekata.com/kata/kata09-back-to-the-checkout/ -->
+  </h3>
+  <!-- <button ng-click="say()">Click me</button> -->
+  <section class="scanner">
+    <!-- This section will have buttons to simulate the scanning (one for each product), plus a scrolling area for output that
+    shows the scanned items, pricing, and total. -->
+    <div class="button_holder">
+      <button class="scan_button" ng-click="say('A')"> A </button>
+      <button class="scan_button" ng-click="say('B')"> B </button>
+      <button class="scan_button" ng-click="say('C')"> C </button>
+      <button class="scan_button" ng-click="say('D')"> D </button>
+      <button class="scan_button" ng-click="say('E')"> E </button>
+    </div>
+  </section>
+  <section class="admin">
+    <!-- This will be the admin section with just a big text area, will accept the pricing list in line format: Item letter, 
+      name, unit price, and special price.  Controller code will parse this to create an internal pricing table on the fly. 
+      This pricing table will be persisted in the Mongo DB. -->
+    <textarea cols="55" placeholder="Admin will set pricing list here..." rows="12" ></textarea>
+  </section>
 </section>
+
