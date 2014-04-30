@@ -9,18 +9,20 @@
     <!-- This section will have buttons to simulate the scanning (one for each product), plus a scrolling area for output that
     shows the scanned items, pricing, and total. -->
     <div class="button_holder">
-      <button class="scan_button" ng-click="say('A')"> A </button>
-      <button class="scan_button" ng-click="say('B')"> B </button>
-      <button class="scan_button" ng-click="say('C')"> C </button>
-      <button class="scan_button" ng-click="say('D')"> D </button>
-      <button class="scan_button" ng-click="say('E')"> E </button>
+      <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('A')"> A </button>
+      <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('B')"> B </button>
+      <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('C')"> C </button>
+      <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('D')"> D </button>
+      <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('E')"> E </button>
+      <button class="scan_reset" ng-disabled="isDisabled" ng-click="reset()">Reset</button> 
     </div>
   </section>
   <section class="admin">
     <!-- This will be the admin section with just a big text area, will accept the pricing list in line format: Item letter, 
       name, unit price, and special price.  Controller code will parse this to create an internal pricing table on the fly. 
       This pricing table will be persisted in the Mongo DB. -->
-    <textarea cols="55" placeholder="Admin will set pricing list here..." rows="12" ></textarea>
+    <textarea cols="55" rows="12" ng-model="pricingList"></textarea>
+    <button class="submit_button" ng-click="pricingListSubmit()">Submit</button>
   </section>
 </section>
 
