@@ -16,11 +16,14 @@
       <button class="scan_button" ng-disabled="isDisabled" ng-click="scan('E')"> E </button>
       <button class="scan_reset" ng-disabled="isDisabled" ng-click="reset()">Reset</button> 
     </div>
+    <div class="results">
+      <pre>{{totalSale}}</pre>
+    </div>
   </section>
   <section class="admin">
     <!-- This will be the admin section with just a big text area, will accept the pricing list in line format: Item letter, 
       name, unit price, and special price.  Controller code will parse this to create an internal pricing table on the fly. 
-      This pricing table will be persisted in the Mongo DB. -->
+      In a second phase, this pricing table will be persisted in the Mongo DB. For now, I will just focus on the View and Controller, to complete the objectives in the kata.  This means parsing the rules, setting up an object for the rules, and then taking scans followed by displaying resulting totals.  -->
     <textarea cols="55" rows="12" ng-model="pricingList"></textarea>
     <button class="submit_button" ng-click="pricingListSubmit()">Submit</button>
   </section>

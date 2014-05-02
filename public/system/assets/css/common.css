@@ -57,6 +57,24 @@ textarea {
   margin: 10px;
   margin-left: 60px;
   position: absolute;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #FFF;
+  border: none;
+}
+
+.results {
+  margin: 6px;
+  padding: 6px;
+  position: relative;
+  top: 88px;
+  left: 28px;
+  width: 420px;
+  height: 280px;
+  border-radius: 4px;
+  border: 2px solid black; 
 }
 
 .button_holder {
