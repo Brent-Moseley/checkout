@@ -7,6 +7,7 @@ phase II will add the model layer to save orders and pricing rules, as well as
 add an enhanced UI.
 
 The interesting files are:
+
 1. public/system/views/index.html               The View file
 2. public/system/controllers/index.js           The Controller logic / code
 3. public/system/assets/css/common.css   Style sheets for the view.
