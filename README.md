@@ -6,14 +6,14 @@ first phase of this solution focuses on the View and Controller,
 phase II will add the model layer to save orders and pricing rules, as well as
 add an enhanced UI.
 
-The interesting files are:\n
-public/system/views/index.html               The View file\n
-public/system/controllers/index.js           The Controller logic / code\n
-public/system/assets/css/common.css   Style sheets for the view.
+The interesting files are:
+1. public/system/views/index.html               The View file
+2. public/system/controllers/index.js           The Controller logic / code
+3. public/system/assets/css/common.css   Style sheets for the view.
 
-server/models/pricing.js                   Mongoose Model code to be implemented later.
-server/controllers/pricing.js              More model code
-server/routes/pricing.js                     The routes
+4. server/models/pricing.js                   Mongoose Model code to be implemented later.
+5. server/controllers/pricing.js              More model code
+6. server/routes/pricing.js                     The routes
 
 
 
