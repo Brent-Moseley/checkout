@@ -1,3 +1,24 @@
+Solution Notes for Code Kata 09:  Return to Checkout
+http://codekata.com/kata/kata09-back-to-the-checkout/
+
+This is a MEAN stack solution (MongoDB, Express, Angular, Node),
+first phase of this solution focuses on the View and Controller, 
+phase II will add the model layer to save orders and pricing rules, as well as
+add an enhanced UI.
+
+The interesting files are:
+public/system/views/index.html               The View file
+public/system/controllers/index.js           The Controller logic / code
+public/system/assets/css/common.css   Style sheets for the view.
+
+server/models/pricing.js                   Mongoose Model code to be implemented later.
+server/controllers/pricing.js              More model code
+server/routes/pricing.js                     The routes
+
+
+
+
+
 # [![MEAN Logo](http://www.mean.io/img/logos/meanlogo.png)](http://mean.io/) MEAN Stack
 
 [![Build Status](https://travis-ci.org/linnovate/mean.png?branch=master)](https://travis-ci.org/linnovate/mean)
