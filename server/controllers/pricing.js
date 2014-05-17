@@ -4,14 +4,14 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Pricing = mongoose.model('Pricing'),
-    _ = require('lodash');
+    Pricing = mongoose.model('Pricing');
+    //_ = require('lodash');
 
 
 /**
  * Find article by id
  */
-exports.article = function(req, res, next, id) {
+exports.pricing = function(req, res, next, id) {
     Pricing.load(id, function(err, pricing) {
         if (err) return next(err);
         if (!pricing) return next(new Error('Failed to load pricing ' + id));
@@ -20,23 +20,32 @@ exports.article = function(req, res, next, id) {
     });
 };
 
+
+exports.destroy = function(req, res) {
+    console.log ('in Drop...');
+    var pricing = new Pricing();
+    pricing.collection.drop();
+};
+
 /**
  * Create a pricing
  */
 exports.create = function(req, res) {
     var pricing = new Pricing(req.body);
-    pricing.item = req.item;
-    pricing.unitPrice = req.unitPrice;
-    pricing.specialOffer = req.specialOffer;
-    pricing.specialPriceUnits = req.specialPriceUnits;
-    pricing.specialPriceTotal = req.specialPriceTotal;
+    console.log ('server controller pricing.....');
+    pricing.item = req.body.item;
+    pricing.unitPrice = req.body.unitPrice;
+    pricing.specialOffer = req.body.specialOffer;
+    pricing.specialPriceUnits = req.body.specialPriceUnits;
+    pricing.specialPriceTotal = req.body.specialPriceTotal;
 
     pricing.save(function(err) {
         if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                pricing: pricing
-            });
+            console.log ('Damn, error!  ' + err);
+            // return res.send('users/signup', {
+            //     errors: err.errors,
+            //     pricing: pricing
+            // });
         } else {
             res.jsonp(pricing);
         }
@@ -83,7 +92,7 @@ exports.destroy = function(req, res) {
 
 */
 /**
- * Show an article
+ * Show a pricing 
  */
 exports.show = function(req, res) {
     res.jsonp(req.pricing);

@@ -18,7 +18,7 @@ var PricingSchema = new Schema({
     item: {
         type: String,
         default: '',
-        trim: true
+        trim: false
     },
     unitPrice: {
         type: Number,
