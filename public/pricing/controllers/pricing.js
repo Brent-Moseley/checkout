@@ -1,5 +1,8 @@
 'use strict';
  
+
+// Need to update for FullText??
+
 angular.module('mean.system').controller('PricingController', ['$scope', '$stateParams', '$location', 'Global', 'Pricing',
   function ($scope, $stateParams, $location, Global, Pricing) {
     $scope.global = Global;
@@ -7,7 +10,7 @@ angular.module('mean.system').controller('PricingController', ['$scope', '$state
     $scope.create = function() {
       console.log ('Creating new pricing in the controller.');
       var pricing = new Pricing({
-        item: this.pricingList,
+        //item: this.pricingList,
         //description: this.description
       });
  

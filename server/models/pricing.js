@@ -15,6 +15,11 @@ var PricingSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    fullText: {
+        type: String,
+        default: '',
+        trim: false
+    },
     item: {
         type: String,
         default: '',

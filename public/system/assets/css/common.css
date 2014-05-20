@@ -108,7 +108,17 @@ pre {
   margin: 6px;
   position: relative;
   top: 260px;
-  left: 10px;
+  left: 55px;
+  width: 80px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+.restore_button {
+  margin: 6px;
+  position: relative;
+  top: 260px;
+  left: 110px;
   width: 80px;
   height: 30px;
   border-radius: 7px;

@@ -30,9 +30,11 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     };
 
 
+
     // Save one pricing rule to the DB
     $scope.create = function (current) {
       var pricing = new Pricing({
+        fullText: current.fullText,
         item: current.item,
         unitPrice: current.unitPrice,
         specialOffer: current.hasSpecial,
@@ -42,6 +44,15 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
 
       pricing.$save(function(response) {
         console.log('Response from saving: ' + Object.keys(response));
+      });
+    };
+
+    
+    $scope.restore = function() {
+      var pricing = new Pricing({});
+      pricing.$get(function(response) {
+        console.log('Response from reading: ' + response.fullText);
+        $scope.pricingList = response.fullText;
       });
     };
 
@@ -100,7 +111,9 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     };
 
 
-    // Create pricing table from the pricing list on the UI.
+    // Create pricing table from the pricing list on the UI.  Also saves pricing rules to the DB by default (only one set
+    // is saved at a time, clicking the restore button will load the saved pricing rules for editing / submission. 
+    // May re-factor code later to save / restore by ID.  
     $scope.pricingListSubmit = function() {
       var lines = $scope.pricingList.split('\n');    // $scope.pricingList is a data bind model item in the UI
       var listStartsAt = 3;        // UI line where list actually starts.  Future refactor:  handle case where list does not start on third line.
@@ -121,7 +134,12 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         	specialPrice = parseInt(words[positionSpecialPrice]);
         	hasSpecial = true;
         }
+
+        var ft = i == listStartsAt ? $scope.pricingList : '';  // Only save the full text of the rules with the first item,
+                                                              // this will eventually be re-factored with its own table / collection.
+                                                              // and REST service. 
         var current = {
+          fullText: ft,
       	  item: words[positionItem],
       	  unitPrice: parseInt(words[positionUnitPrice]),
       	  hasSpecial: hasSpecial,
@@ -129,7 +147,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       	  specialPrice: specialPrice
         };
         $scope.pricingTable.push(current);
-        $scope.create(current);      // Save to DB
+        $scope.create(current);      // Save current pricing rule list to DB (only saves one set at a time)
       	console.log (current);
       }
       $scope.isDisabled = false;     // Allow for purchases by enabling the scan button bar. 
@@ -153,3 +171,4 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
 
 // Tutorial at: www.sitepoint.com/introduction-mean-stack/
 // Also, good info on design at balderdash.co.  Sails might be a useful alternative to working directly with Express.
+// http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/

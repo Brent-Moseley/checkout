@@ -18,7 +18,7 @@ module.exports = function(app) {
     //app.get('/pricing', pricing.all);
     app.post('/pricing', pricing.create);
     app.del('/pricing', pricing.destroy);
-    //app.get('/pricing/:pricingId', pricing.show);
+    app.get('/pricing', pricing.show);
     //app.put('/pricing/:pricingId', authorization.requiresLogin, hasAuthorization, pricing.update);
     //app.del('/pricing/:pricingId', authorization.requiresLogin, hasAuthorization, pricing.destroy);
 
