@@ -5,6 +5,7 @@
  */
 
 /*   
+ Showing MongoDB data from the terminal:
  db.pricings.find()
  show dbs
  use mean-dev

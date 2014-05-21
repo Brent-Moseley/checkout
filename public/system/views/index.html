@@ -23,7 +23,7 @@
   <section class="admin">
     <!-- This will be the admin section with just a big text area, will accept the pricing list in line format: Item letter, 
       name, unit price, and special price.  Controller code will parse this to create an internal pricing table on the fly. 
-      In a second phase, this pricing table will be persisted in the Mongo DB. For now, I will just focus on the View and Controller, to complete the objectives in the kata.  This means parsing the rules, setting up an object for the rules, and then taking scans followed by displaying resulting totals.  -->
+      In this second phase, this pricing table will be persisted in the Mongo DB.  -->
     <textarea cols="55" rows="12" ng-model="pricingList"></textarea>
     <button class="submit_button" ng-click="pricingListSubmit()">Submit</button>
     <button class="restore_button" ng-click="restore()">Restore</button>

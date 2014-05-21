@@ -1,8 +1,9 @@
 'use strict';
 
-// Note:  Probably need to inject the Pricing service in the controller below in order to interact with the backend.
+// Note:  need to inject the Pricing service in the controller below in order to interact with the backend.
 angular.module('mean.system').controller('IndexController', ['$scope', 'Global', 'Pricing', function ($scope, Global, Pricing) {
     $scope.global = Global;
+
     // Create the default pricing list below, using one big string because the point of the exercise is to parse this
     // in the code, not use a grid type control in the UI.  A future revision may include a grid control, make more use of
     // Angular UI features.  Will also save these rules to the Mongo DB via Mongoose when user clicks submit.  
@@ -30,7 +31,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     };
 
 
-
     // Save one pricing rule to the DB
     $scope.create = function (current) {
       var pricing = new Pricing({
@@ -48,6 +48,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
     };
 
     
+    // Restore the pricing rules from the DB by reading the last full text submitted.  User can then click "Submit"
+    // to make those rules active. Each pricing rule is saved, for demo purposes, but not read in at this point. 
     $scope.restore = function() {
       var pricing = new Pricing({});
       pricing.$get(function(response) {
@@ -136,7 +138,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         }
 
         var ft = i == listStartsAt ? $scope.pricingList : '';  // Only save the full text of the rules with the first item,
-                                                              // this will eventually be re-factored with its own table / collection.
+                                                              // this will eventually be re-factored with its own table / document.
                                                               // and REST service. 
         var current = {
           fullText: ft,
@@ -147,7 +149,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       	  specialPrice: specialPrice
         };
         $scope.pricingTable.push(current);
-        $scope.create(current);      // Save current pricing rule list to DB (only saves one set at a time)
+        $scope.create(current);      // Save current pricing rule list to DB
       	console.log (current);
       }
       $scope.isDisabled = false;     // Allow for purchases by enabling the scan button bar. 
@@ -172,3 +174,5 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
 // Tutorial at: www.sitepoint.com/introduction-mean-stack/
 // Also, good info on design at balderdash.co.  Sails might be a useful alternative to working directly with Express.
 // http://addyosmani.com/blog/full-stack-javascript-with-mean-and-yeoman/
+// http://blog.modulus.io/getting-started-with-mongoose
+// use ngrock for easy hosting of app on your your local machine.  
