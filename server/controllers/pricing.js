@@ -65,6 +65,7 @@ exports.create = function(req, res) {
 /**
  * Update a pricing  - implement later
  
+
 exports.update = function(req, res) {
     var article = req.article;
 
