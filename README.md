@@ -1,3 +1,10 @@
+# MEAN stack based solution to a Code Kata programming exercise
+
+This app is a simple use of MEAN stack to create a UI for the solution to a Code Kata programming exercise.  Code is not guaranteed to be highly polished, and master may not have the latest updates, please contact me for more details if interested.
+
+
+
+
 Solution Notes for Code Kata 09:  Return to Checkout
 http://codekata.com/kata/kata09-back-to-the-checkout/
 
